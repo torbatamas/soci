@@ -296,11 +296,20 @@ void odbc_statement_backend::describe_column(int colNum, data_type & type,
         type = dt_date;
         break;
     case SQL_DOUBLE:
-    case SQL_DECIMAL:
     case SQL_REAL:
     case SQL_FLOAT:
-    case SQL_NUMERIC:
         type = dt_double;
+        break;
+    case SQL_DECIMAL:
+    case SQL_NUMERIC:
+        if (decDigits == 0)
+        {
+            type = dt_integer;
+        }
+        else
+        {
+            type = dt_double;
+        }
         break;
     case SQL_TINYINT:
     case SQL_SMALLINT:
