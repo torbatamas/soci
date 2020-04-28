@@ -97,7 +97,7 @@ void* odbc_standard_use_type_backend::prepare_for_bind(
         sqlType = SQL_TIMESTAMP;
         cType = SQL_C_TIMESTAMP;
         buf_ = new char[sizeof(TIMESTAMP_STRUCT)];
-        size = 19; // This number is not the size in bytes, but the number
+        size = 16; // This number is not the size in bytes, but the number
                    // of characters in the date if it was written out
                    // yyyy-mm-dd hh:mm:ss
 
@@ -140,7 +140,7 @@ void odbc_standard_use_type_backend::copy_from_string(
     )
 {
     size = s.size();
-    sqlType = size > ODBC_MAX_COL_SIZE ? SQL_LONGVARCHAR : SQL_VARCHAR;
+    sqlType = size > ODBC_MAX_COL_SIZE ? SQL_LONGVARCHAR : SQL_CHAR;
     cType = SQL_C_CHAR;
     buf_ = new char[size+1];
     memcpy(buf_, s.c_str(), size);

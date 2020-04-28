@@ -29,6 +29,13 @@ soci_backend_test(
   CONNSTR "test-mssql.dsn")
 
 soci_backend_test(
+  NAME oracle
+  BACKEND ODBC
+  DEPENDS ODBC
+  SOURCE test-odbc-oracle.cpp ${SOCI_TESTS_COMMON}
+  CONNSTR "test-oracle.dsn")
+
+soci_backend_test(
   NAME mysql
   BACKEND ODBC
   DEPENDS ODBC

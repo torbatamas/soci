@@ -198,7 +198,7 @@ void odbc_vector_use_type_backend::prepare_for_bind(void *&data, SQLUINTEGER &si
             sqlType = SQL_TYPE_TIMESTAMP;
             cType = SQL_C_TYPE_TIMESTAMP;
             data = buf_;
-            size = 19; // This number is not the size in bytes, but the number
+            size = 16; // This number is not the size in bytes, but the number
                       // of characters in the date if it was written out
                       // yyyy-mm-dd hh:mm:ss
         }

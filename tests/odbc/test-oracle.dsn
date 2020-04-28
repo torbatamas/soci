@@ -1,0 +1,5 @@
+[ODBC]
+Driver=/usr/local/oracle/product/12.1.0/lib/libsqora.so.12.1
+DBQ=orcl
+uid=scott
+pwd=tiger
